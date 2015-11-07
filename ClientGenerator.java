@@ -27,9 +27,12 @@ public class ClientGenerator implements Runnable{
             while (!Thread.interrupted()) {
                 requestCount = random.nextInt(7);
 
+                if (requestCount == 0)
+                    requestCount++;
+
                 if (requestCount > 0) {
                     TimeUnit.MILLISECONDS.sleep(random.nextInt(250));
-                    clientLine.put(new Client(random.nextInt(7)));
+                    clientLine.put(new Client(requestCount));
                 }
             }
         } catch (InterruptedException e) {

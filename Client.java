@@ -18,10 +18,8 @@ public class Client {
         try {
             requests = new RequestLine(requestCount);
         } catch (IllegalArgumentException e) {
-            LOGGER.info("requestCount = " + requestCount);
+            LOGGER.error("requestCount = " + requestCount);
             LOGGER.error(e);
-
-            requests = new RequestLine(++requestCount);
         }
 
         for (int i = 0; i < requestCount; i++) {
